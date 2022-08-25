@@ -6,9 +6,9 @@ function loadMilestones(){
 
   milestones.innerHTML = `${milestonesData
     .map(function(milestone){
-     return `<div class="milestone border-b">
+     return `<div class="milestone border-b" id="${milestone._id}">
      <div class="flex">
-       <div class="checkbox"><input type="checkbox" /></div>
+       <div class="checkbox"><input type="checkbox" onclick="markMileStone(this, ${milestone._id})"/></div>
        <div onclick="openMilestone(this, ${milestone._id})">
          <p>
            ${milestone.name}
@@ -57,10 +57,40 @@ function showMilestone(id){
   const name = document.querySelector(".title");
   const details = document.querySelector(".details");
 
+  milestoneImage.style.opacity = "0";
+
   milestoneImage.src = milestonesData[id].image;
   name.innerText = milestonesData[id].name;
   details.innerText = milestonesData[id].description;
 
 }
+
+// listen for hero image load
+const milestoneImage = document.querySelector(".milestoneImage");
+milestoneImage.onload = function(){
+    this.style.opacity = "1";
+}
+
+function markMileStone(checkbox,id){
+    const doneList = document.querySelector(".doneList");
+    const milestonesList = document.querySelector(".milestones");
+
+    const item = document.getElementById(id);
+
+    if(checkbox.checked){
+      //mark as done
+      milestonesList.removeChild(item);
+      doneList.appendChild(item);
+    } else {
+      // back to main list
+      milestonesList.appendChild(item);
+      doneList.removeChild(item);
+
+      // task - do the sorting
+      // reload list
+      
+    }
+}
+
 
 loadMilestones()
