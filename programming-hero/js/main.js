@@ -81,14 +81,14 @@ function markMileStone(checkbox,id){
       //mark as done
       milestonesList.removeChild(item);
       doneList.appendChild(item);
+
     } else {
       // back to main list
       milestonesList.appendChild(item);
       doneList.removeChild(item);
 
       // task - do the sorting
-      // reload list
-      
+      // reload list 
     }
 }
 
