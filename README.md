@@ -1,4 +1,4 @@
-<p style="text-align:center"> !!! Basically, this repository create to deploy my JavaScript Project !!! </p>
+<p align="center"> !!! Basically, this repository create to deploy my JavaScript Project !!! </p>
 
 <h3>Project Live Link is Given Below</h3>
 
