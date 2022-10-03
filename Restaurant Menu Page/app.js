@@ -103,4 +103,4 @@ window.addEventListener('DOMContentLoaded',function (){
     });
     displayMenu = displayMenu.join('');
     sectionCenter.innerHTML = displayMenu
-})
+});
